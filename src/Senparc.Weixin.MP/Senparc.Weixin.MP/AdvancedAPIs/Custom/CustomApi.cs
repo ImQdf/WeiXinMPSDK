@@ -66,6 +66,8 @@ using Senparc.CO2NET.Extensions;
 using Senparc.Weixin.MP.CommonAPIs;
 using Senparc.Weixin.MP.Entities;
 using Senparc.CO2NET.Helpers.Serializers;
+using Senparc.NeuChar.Entities;
+using Senparc.NeuChar;
 
 namespace Senparc.Weixin.MP.AdvancedAPIs
 {
@@ -90,6 +92,7 @@ namespace Senparc.Weixin.MP.AdvancedAPIs
         /// <param name="timeOut">代理请求超时时间（毫秒）</param>
         /// <param name="kfAccount">客服</param>
         /// <returns></returns>
+        [ApiBind(NeuChar.PlatformType.WeChat_OfficialAccount, "CustomApi.SendText", true)]
         public static WxJsonResult SendText(string accessTokenOrAppId, string openId, string content,
             int timeOut = Config.TIME_OUT, string kfAccount = "")
         {
